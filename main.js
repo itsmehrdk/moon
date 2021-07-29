@@ -20,10 +20,15 @@ scene.add( sphere );
 
 camera.position.z = 10;
 
+controls = new THREE.OrbitControls(camera, renderer.domElement)
+controls.minDistance = 1
+controls.maxDistance = 1000
+
 function animate(){
     requestAnimationFrame(animate);
     sphere.rotation.x += 0.01;
     sphere.rotation.y += 0.01;
+    controls.update()
     renderer.render(scene,camera);
 }
 function onWindowResize() {
